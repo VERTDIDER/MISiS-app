@@ -9,30 +9,36 @@
 import SwiftUI
 
 struct Topview: View {
+    
+    var data: DataResponse
+    
     var body: some View {
-        HStack {
+        HStack() {
             VStack (alignment: .center, spacing: 50){
-                Text("9:00")
+                Text(data.start_time)
                     .fontWeight(.bold)
-                    .font(.system(size: 20))
-                Text("10:30")
+                    .font(.system(size: 17))
+                Text(data.end_time)
                     .font(.system(size: 15))
             }
             Image("item")
                 .resizable()
                 .frame(width: 17, height: 100)
-            VStack(alignment: .leading, spacing: 50) {
-                Text("seminar")
+            VStack(alignment: .leading, spacing: 10) {
+                Text(data.type)
                     .foregroundColor(Color.blue)
-                Text("machine learning")
+                Text(data.object)
+                    .multilineTextAlignment(.leading)
             }
             Spacer()
         }
+        
+        
     }
 }
 
 struct Topview_Previews: PreviewProvider {
     static var previews: some View {
-        Topview()
+        Topview(data: currentDataResponse[0])
     }
 }

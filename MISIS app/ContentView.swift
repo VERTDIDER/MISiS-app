@@ -12,11 +12,11 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            List {
-                Cell()
-                Cell()
+            List(currentDataResponse) {data in
+                Cell(data: data)
             }.navigationBarTitle("Classes")
-        }
+        }.colorInvert()
+        
     }
     
 }

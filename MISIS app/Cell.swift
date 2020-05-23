@@ -9,17 +9,23 @@
 import SwiftUI
 
 struct Cell: View {
+    
+    var data: DataResponse
+    
     var body: some View {
-        VStack {
-            Topview()
-            Text("skjfjksknnskbfsjfsffbsubbsebfusjcifqehfoqifjqojfiejfhjiwejhfiowejfiowefhiwoefjniwjnciwncwienwjnccincjienciwednwinwejnchiwjndiwejdijqnenicjndfiejhfihjifhiaoeh")
-                .lineLimit(nil)
+        VStack(alignment: .center, spacing: 40) {
+            Topview(data: data)
+                
+            HStack(alignment: .center, spacing: 20){
+                Text(data.classroom)
+                Text(data.tutor)
+            }
         }.padding(5)
     }
 }
 
 struct SwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
-        Cell()
+        Cell(data: currentDataResponse[0])
     }
 }
